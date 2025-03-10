@@ -32,10 +32,10 @@ import pastasolver.lifted.lifted as lft
 )
 def test_cxy_ax_bxy_multiple_bi(params, lower_val, upper_val, expected_lp, expected_up, test_name):
     """
-    Test parametrizzati per la funzione cxy_ax_bxy_multiple_bi.
+    Parameterized test for the function cxy_ax_bxy_multiple_bi.
     
-    Se 'upper_val' è None, il test viene eseguito passando solo il parametro 'lower';
-    altrimenti vengono passati sia 'lower' che 'upper'.
+    If 'upper_val' is None, the test is executed by passing only the 'lower' parameter;
+    otherwise both 'lower' and 'upper' parameters are passed.
     """
     if upper_val is None:
         lp, up, _, _ = lft.cxy_ax_bxy_multiple_bi(0.4, params, lower=lower_val)
@@ -43,8 +43,8 @@ def test_cxy_ax_bxy_multiple_bi(params, lower_val, upper_val, expected_lp, expec
         lp, up, _, _ = lft.cxy_ax_bxy_multiple_bi(0.4, params, lower=lower_val, upper=upper_val)
     
     assert almost_equal(lp, expected_lp), (
-        f"{test_name}: probabilità inferiore errata - atteso: {expected_lp}, ottenuto: {lp}"
+        f"{test_name}: lower probability incorrect - expected: {expected_lp}, got: {lp}"
     )
     assert almost_equal(up, expected_up), (
-        f"{test_name}: probabilità superiore errata - atteso: {expected_up}, ottenuto: {up}"
+        f"{test_name}: upper probability incorrect - expected: {expected_up}, got: {up}"
     )
