@@ -48,7 +48,9 @@ class ArgumentsTest:
         mh : bool = False,
         gibbs : bool = False,
         rejection : bool = False,
-        normalize : bool = False) -> None:
+        normalize : bool = False,
+        expected_exception = None
+        ) -> None:
         self.test_name = test_name
         self.filename = filename
         self.query = query
@@ -60,5 +62,6 @@ class ArgumentsTest:
         self.gibbs = gibbs
         self.rejection = rejection
         self.normalize = normalize
+        self.expected_exception = expected_exception
         
 # print(almostEqual(0.5,0.484,0.015))
