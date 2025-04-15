@@ -54,7 +54,7 @@ def test_property_valid_prob(pa: float, pb: float):
 
     try:
         # Pass the file path to the Pasta solver
-        pasta_solver = Pasta(tmp_name, QUERY, EVIDENCE, normalize_prob=NORMALIZE)
+        pasta_solver = Pasta(tmp_name, QUERY)
         lp, up = pasta_solver.inference()
 
         # Assert that lp, up are between 0 and 1
@@ -80,7 +80,7 @@ def test_property_same_prob(pa: float, pb: float):
         tmp_name = tmp.name
 
     try:
-        pasta_solver = Pasta(tmp_name, QUERY, EVIDENCE, normalize_prob=NORMALIZE)
+        pasta_solver = Pasta(tmp_name, QUERY)
         lp, up = pasta_solver.inference()
         # Ensure the lower and upper probabilities match
         assert lp == up, f"lp ({lp}) != up ({up})"
@@ -103,7 +103,7 @@ def test_property_less_sum_prob(pa: float, pb: float):
         tmp_name = tmp.name
 
     try:
-        pasta_solver = Pasta(tmp_name, QUERY, EVIDENCE, normalize_prob=NORMALIZE)
+        pasta_solver = Pasta(tmp_name, QUERY)
         lp, up = pasta_solver.inference()
         # Check that lp is strictly less than the sum of pa and pb
         assert lp < (pa + pb), f"lp ({lp}) >= pa+pb ({pa+pb})"
